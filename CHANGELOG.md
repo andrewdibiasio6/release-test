@@ -1,9 +1,12 @@
 ## [Unreleased]
-* cool stuff
-* better stuff
-* Neat stuff
-* Wicked cool stuff
-* broken stuff :(
+
+## [9.9.9] - 2022-06-02
+
+-   cool stuff
+-   better stuff
+-   Neat stuff
+-   Wicked cool stuff
+-   broken stuff :(
 
 ## [8.8.8] - 2022-06-02
 
@@ -17,7 +20,9 @@
 
  test
 
-[Unreleased]: https://github.com/andrewdibiasio6/release-test/compare/8.8.8...HEAD
+[Unreleased]: https://github.com/andrewdibiasio6/release-test/compare/9.9.9...HEAD
+
+[9.9.9]: https://github.com/andrewdibiasio6/release-test/compare/8.8.8...9.9.9
 
 [8.8.8]: https://github.com/andrewdibiasio6/release-test/compare/7.7.7...8.8.8
 
