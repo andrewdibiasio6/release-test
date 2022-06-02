@@ -35,4 +35,4 @@ jobs:
           git commit --message "Prepare release ${{ github.event.inputs.versionName }}"
           echo "::set-output name=commit::$(git rev-parse HEAD)"
       - name: Create Tag
-        run: git tag release/v${{ github.event.inputs.versionName }} && git push origin release/v${{ github.event.inputs.versionName }}
+        run: git tag ${{ github.event.inputs.versionName }} && git push origin ${{ github.event.inputs.versionName }}
