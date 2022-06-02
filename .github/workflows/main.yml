@@ -31,12 +31,13 @@ jobs:
         run: git tag ${{ github.event.inputs.versionName }} && git push origin ${{ github.event.inputs.versionName }}
       - name: Create Release
         run: gh release create ${{ github.event.inputs.versionName }} --title ${{ github.event.inputs.versionName }} --notes "this is a test release"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload jar
         run: echo "test" > fake.txt && gh release upload ${{ github.event.inputs.versionName }} ./fake.txt
       - name: Commit changelog and manifest files
         id: make-commit
         run: |
-          git add app_versions.gradle
           git add CHANGELOG.md
           git commit --message "Prepare release ${{ github.event.inputs.versionName }}"
           echo "::set-output name=commit::$(git rev-parse HEAD)"
