@@ -1,7 +1,9 @@
 ## [Unreleased]
 * cool stuff
 * better stuff
+* Neat stuff
 * Wicked cool stuff
+* broken stuff :(
 
 ## [8.8.8] - 2022-06-02
 
