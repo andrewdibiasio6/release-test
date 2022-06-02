@@ -1,4 +1,4 @@
-name: Create Release
+name: Tag Release
 on:
   workflow_dispatch:
     inputs:
@@ -27,12 +27,26 @@ jobs:
           git commit --message "Prepare release ${{ github.event.inputs.versionName }}"
           echo "::set-output name=commit::$(git rev-parse HEAD)"
           git push
-      - name: Create Tag
-        run: git tag ${{ github.event.inputs.versionName }} && git push origin ${{ github.event.inputs.versionName }}
+      - name: Extract release notes
+        id: extract_release_notes
+        uses: ffurrer2/extract-release-notes@v1
       - name: Create Release
-        run: gh release create ${{ github.event.inputs.versionName }} --title ${{ github.event.inputs.versionName }} --notes "this is a test release"
+        id: create_release
+        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.event.inputs.versionName }}
+          release_name: ${{ github.event.inputs.versionName }}
+          body: ${{ steps.extract_release_notes.outputs.release_notes }}
+          draft: false
+          prerelease: false
+#       - name: Create Tag
+#         run: git tag ${{ github.event.inputs.versionName }} && git push origin ${{ github.event.inputs.versionName }}
+#       - name: Create Release
+#         run: gh release create  --title ${{ github.event.inputs.versionName }} --notes "this is a test release"
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload jar
         run: echo "test" > fake.txt && gh release upload ${{ github.event.inputs.versionName }} ./fake.txt
         env:
