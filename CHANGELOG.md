@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [10.0.0] - 2022-06-03
+
 ## [9.9.9] - 2022-06-02
 
 -   cool stuff
@@ -20,7 +22,9 @@
 
  test
 
-[Unreleased]: https://github.com/andrewdibiasio6/release-test/compare/9.9.9...HEAD
+[Unreleased]: https://github.com/andrewdibiasio6/release-test/compare/10.0.0...HEAD
+
+[10.0.0]: https://github.com/andrewdibiasio6/release-test/compare/9.9.9...10.0.0
 
 [9.9.9]: https://github.com/andrewdibiasio6/release-test/compare/8.8.8...9.9.9
 
