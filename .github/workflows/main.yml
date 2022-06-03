@@ -41,12 +41,6 @@ jobs:
           body: ${{ steps.extract_release_notes.outputs.release_notes }}
           draft: false
           prerelease: false
-#       - name: Create Tag
-#         run: git tag ${{ github.event.inputs.versionName }} && git push origin ${{ github.event.inputs.versionName }}
-#       - name: Create Release
-#         run: gh release create  --title ${{ github.event.inputs.versionName }} --notes "this is a test release"
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload jar
         run: echo "test" > fake.txt && gh release upload ${{ github.event.inputs.versionName }} ./fake.txt
         env:
